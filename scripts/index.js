@@ -3,7 +3,7 @@ require("/custom_functions.js");
 global.routes = require("/routes.js")();
 
 module.exports = function() {
-  let contentType = env.content_type || "";
+  let contentType = env.content_type || ""
 
   // If running locally and the url includes ?moov_debug=true, break here.
   if (env.path.indexOf("moov_debug=true") >= 0) {
