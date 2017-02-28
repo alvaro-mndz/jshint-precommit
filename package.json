@@ -9,12 +9,13 @@
   },
   "devDependencies": {
     "gulp": "3.9.0",
-    "moov_builder": "2.4.6"
+    "moov_builder": "2.4.6",
+    "pre-commit": "1.2.2"
   },
   "scripts": {
     "bundle": "node --harmony ./node_modules/.bin/moov_builder",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jshint": "jshint -c .jshintrc --exclude-path .gitignore ."
+    "jshint": "node_modules/moov_builder/node_modules/.bin/jshint -c .jshintrc --exclude-path .jshintignore ."
   },
   "pre-commit": ["jshint"],
   "author": "Moovweb",
