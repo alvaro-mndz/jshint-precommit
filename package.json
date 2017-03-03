@@ -14,10 +14,12 @@
   },
   "scripts": {
     "bundle": "node --harmony ./node_modules/.bin/moov_builder",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "jshint": "node_modules/moov_builder/node_modules/.bin/jshint -c .jshintrc --exclude-path .jshintignore ."
+    "jshint": "if node_modules/moov_builder/node_modules/.bin/jshint -c .jshintrc --exclude-path .jshintignore .; then exit 0; else echo \"\nIt looks like JSHint has found issues with your JavaScript code.\nPlease clear the errors listed above before committing.\n\" && exit 1; fi"
   },
-  "pre-commit": ["jshint"],
+  "pre-commit": {
+    "run": ["jshint"],
+    "silent": true
+  },
   "author": "Moovweb",
   "license": "MIT"
 }
